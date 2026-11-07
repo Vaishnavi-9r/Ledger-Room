@@ -1,0 +1,24 @@
+services:
+  mattermost-dev-db:
+    image: postgres:18
+    container_name: ledgerroom-mattermost-dev-db
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.mattermost-development-db
+    environment:
+      POSTGRES_DB: ledgerroom_mattermost_dev
+      POSTGRES_USER: ledgerroom_dev
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - ledgerroom_mattermost_dev_pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  ledgerroom_mattermost_dev_pgdata:
+    name: ledgerroom_mattermost_dev_pgdata

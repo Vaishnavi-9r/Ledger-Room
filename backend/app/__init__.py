@@ -1,0 +1,1 @@
+"""LedgerRoom FastAPI application package."""

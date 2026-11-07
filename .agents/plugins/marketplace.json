@@ -1,0 +1,17 @@
+{
+  "name": "ledgerroom-local",
+  "plugins": [
+    {
+      "name": "ledgerroom",
+      "source": {
+        "source": "local",
+        "path": "./ledgerroom-codex-plugin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

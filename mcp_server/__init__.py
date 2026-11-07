@@ -1,0 +1,1 @@
+"""LedgerRoom local MCP integration."""

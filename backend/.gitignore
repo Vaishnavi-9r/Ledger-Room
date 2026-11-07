@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Node
+node_modules/
+
+# Generated files
+*.log
+.DS_Store

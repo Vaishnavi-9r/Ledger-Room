@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:18
+    container_name: ledgerroom-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ledgerroom
+      POSTGRES_USER: ledgerroom_user
+      POSTGRES_PASSWORD: ${LEDGERROOM_DB_PASSWORD:?Set LEDGERROOM_DB_PASSWORD in the project-root .env file}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ledgerroom_pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  ledgerroom_pgdata:
+    name: ledgerroom_pgdata

@@ -1,0 +1,2 @@
+# Official Model Context Protocol Python SDK (stdio server support).
+mcp>=2.0,<3.0

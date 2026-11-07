@@ -1,0 +1,9 @@
+{
+  "name": "ledgerroom",
+  "version": "0.1.0",
+  "description": "LedgerRoom bookkeeping tools for the Switch-managed Codex agent.",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "LedgerRoom"
+  }
+}
